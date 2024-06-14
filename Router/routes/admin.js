@@ -24,4 +24,5 @@ const router = express.Router();
        res.redirect('/welcome');
     });
 
+    
     module.exports=router;
