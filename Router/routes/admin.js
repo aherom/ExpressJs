@@ -9,7 +9,7 @@ const router = express.Router();
                       <title> add porduct</title>
                   </head>
                   <body>
-                       <form action="/product" method="POST">
+                       <form action="/admin/product" method="POST">
                         name<input type="text" name="tittle"></input>
                         <br>size<input type="number" name="size"></input>
                         <button type="submit">submit</button>
@@ -21,7 +21,7 @@ const router = express.Router();
 
     router.post('/product', (req, res, next) => {
         console.log(req.body); 
-       res.redirect('/');
+       res.redirect('/welcome');
     });
 
     module.exports=router;
