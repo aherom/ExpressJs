@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD product</title>
+</head>
+<body>
+       <header>
+             <nav>
+                 <ul>
+                    <li><a href="/">shop</a></li>
+                    <li><a href="/admin/add-product">add-product</a></li>
+                    <li><a href="/contactus">ContactUs</a></li>
+                 </ul>
+             </nav>
+       </header>
+       <main>
+        <form action="/admin/product" method="POST">
+            name<input type="text" name="tittle"></input>
+            <br>size<input type="number" name="size"></input>
+            <button type="submit">submit</button>
+           </form>
+       </main>
+</body>
+</html>
