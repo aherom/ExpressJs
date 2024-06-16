@@ -6,7 +6,8 @@ const adminrouter = require('./routes/admin');
 const clientrouter = require('./routes/shop');
 const contactus = require('./routes/contact')
 const app = express();
-app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.static(path.join(root,'public')));
 app.use('/admin',adminrouter);
 app.use(contactus);
 app.use(clientrouter);

@@ -13,6 +13,6 @@ router.use('/contactus',(req,res,next)=>
 
 router.use('/success',(req,res,next)=>
     {
-        res.send(`<h1>Form successfuly filled</h1>`);
+        res.redirect('/');
     });
 module.exports= router;

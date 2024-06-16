@@ -4,21 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADD product</title>
+
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-       <header>
-             <nav>
-                 <ul>
-                    <li><a href="/">shop</a></li>
-                    <li><a href="/admin/add-product">add-product</a></li>
-                    <li><a href="/contactus">ContactUs</a></li>
-                 </ul>
-             </nav>
-       </header>
+    <header class="Main-Header">
+        <nav  class="Main-Header_nav">
+            <ul class="Main-Header_item_list">
+               <li class="Main-Header_item"><a href="/">shop</a></li>
+               <li class="Main-Header_item"><a href="/admin/add-product">add-product</a></li>
+               <li class="Main-Header_item"><a href="/contactus">ContactUs</a></li>
+            </ul>
+        </nav>
+  </header>
        <main>
-        <form action="/admin/product" method="POST">
-            name<input type="text" name="tittle"></input>
-            <br>size<input type="number" name="size"></input>
+        <form class="product-form" action="/admin/product" method="POST">
+            <div class="form-controle">
+                <label>Name
+                <input type="text" name="tittle"></input></label>
+               
+                <label>Size<input type="number" name="size"></input></label>
+            </div>
             <button type="submit">submit</button>
            </form>
        </main>
