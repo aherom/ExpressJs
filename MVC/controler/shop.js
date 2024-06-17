@@ -1,7 +1,15 @@
-const express = require('express');
+//const express = require('express');
 const root = require('../util/path');
 const path = require('path');
+const Product = require('../models/product');
 
-exports.shopcontroler= (req, res, next) => {
-    res.sendFile(path.join(root, 'views','shop.html'));
+module.exports.shopcontroler= (req, res, next) => {
+console.log(Product.fetchAll());
+res.sendFile(path.join(root, 'views','shop.html'));
 }
+
+module.exports.productsController = (req,res,next)=>
+    {
+
+        res.json(Product.fetchAll());
+    }
