@@ -2,9 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const root = require('../util/path');
 module.exports = class Product {
-    constructor(name, size) {
+    constructor(name, size,photo,Derscription,price) {
         this.name = name;
         this.size = size;
+        this.photo= photo;
+        this.Derscription=Derscription;
+        this.price=price;
     }
 
     save()
