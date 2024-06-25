@@ -10,6 +10,12 @@ res.sendFile(path.join(root, 'views','index.html'));
 
 module.exports.productsController = (req,res,next)=>
     {
-
-        res.json(Product.fetchAll());
+        Product.fetchAll()
+        .then(([rows, fieldData]) => {
+            res.json(rows);
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(500).json({ error: 'An error occurred' });
+        });
     }

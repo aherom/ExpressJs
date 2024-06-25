@@ -10,7 +10,7 @@ exports.addProductControler=(req,res,next)=>
 
 
 exports.productControler=(req, res, next) => {
-                console.log(req.body); 
+                //console.log(req.body); 
                const product = new Product(req.body.tittle,req.body.size,
                 req.body.photo,req.body.description,req.body.price);
                product.save();

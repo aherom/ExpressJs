@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 products.forEach(product => {
                     const productItem = document.createElement('li');
                     productItem.classList.add('product');
-                    productItem.innerHTML = `<h3>${product.name}</h3>
+                    productItem.innerHTML = `<h3>${product.tittle}</h3>
                     <p>Size: ${product.size}<br>
                     Description:${product.description}<br>
                     Price:${product.price}

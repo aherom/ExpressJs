@@ -1,6 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-const root = require('../util/path');
+const db = require('../util/database')
 module.exports = class Product {
     constructor(name, size,photo,Derscription,price) {
         this.name = name;
@@ -11,25 +9,16 @@ module.exports = class Product {
     }
 
     save()
-     { const productData = JSON.stringify(this) + '\n';
-        fs.appendFile(path.join(root,'data','pro.json'), productData, err => {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log('Product saved successfully!');
-            }
-        });
-          
+     { 
+        
+        db.execute(` insert into products (tittle,size,photo,description,price)
+         values('${this.name}',${this.size},'${ this.photo}','${this.Derscription}'
+         ,${this.price});`);
     }
 
    
     static fetchAll() {
-        try {
-            const data = fs.readFileSync(path.join(root,'data','pro.json'), 'utf-8');
-            return data.trim().split('\n').map(line => JSON.parse(line));
-        } catch (err) {
-            return [];
-        }
+        return db.execute('SELECT * FROM products');
       
     }
 };
