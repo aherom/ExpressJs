@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance</title>
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <h2>Mark Attendance</h2>
+
+    <form id="attendanceForm" action="/fechdata" method="POST">
+        <label for="Date">Select Date:</label>
+        <input type="date" id="Date" name="Date">
+        <button type="submit">Fetch Attendance</button>
+    </form>
+
+    <div id="attendanceResult"></div>
+</body>
+</html>
