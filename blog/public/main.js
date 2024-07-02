@@ -36,6 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
                                 comments.forEach(comment => {
                                     const commentLi = document.createElement('li');
                                     commentLi.textContent = comment.comment_text;
+                                    
+                                    // Add delete button to each comment
+                                    const deleteButton = document.createElement('button');
+                                    deleteButton.textContent = 'Delete';
+                                    deleteButton.addEventListener('click', () => {
+                                        axios.post('/delete-comment', { comment_id: comment.comment_id })
+                                            .then(() => {
+                                                commentsList.removeChild(commentLi);
+                                            })
+                                            .catch(error => {
+                                                console.error('Error deleting comment:', error);
+                                            });
+                                    });
+
+                                    commentLi.appendChild(deleteButton);
                                     commentsList.appendChild(commentLi);
                                 });
                             })
@@ -50,10 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             const commentText = commentForm.querySelector('textarea').value;
                             axios.post('/add-comment', { blog_id: blog.blog_id, comment_text: commentText })
                                 .then(response => {
-                                    const newCommentLi = document.createElement('li');
-                                    newCommentLi.textContent = commentText;
-                                    newContentDiv.querySelector('.comments').appendChild(newCommentLi);
-                                    commentForm.reset();
+                                    // Refresh the page to show the new comment with its ID
+                                    window.location.reload();
                                 })
                                 .catch(error => {
                                     console.error('Error adding comment:', error);
